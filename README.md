@@ -8,10 +8,11 @@ as a neutral white/clay **proxy** clip that carries the correct motion and
 physics, and finally restyled into a **photoreal** clip driven by an edit
 instruction.
 
-> **Status.** This repo ships a small **toy dataset** (8 triplets) and the
-> **inference** scripts. The tuned transformer is on the Hugging Face Hub at
+> **Status.** This repo ships the **Agent Skills** (`skill/`), a small **toy
+> dataset** (8 triplets), and the **inference** scripts. The tuned transformer is
+> on the Hugging Face Hub at
 > [`mickyhimself/VideoCoCo`](https://huggingface.co/mickyhimself/VideoCoCo).
-> Agent Skills are being prepared. See the roadmap below.
+> See the roadmap below.
 
 ## Toy dataset
 
@@ -48,10 +49,10 @@ inspection, not a training-scale corpus.
 
 ## Roadmap
 
+- [x] Agent Skills (`skill/` — prompt → physical plan → Blender proxy → photoreal edit prompt)
 - [x] Toy dataset (8 v2v triplets)
 - [x] Inference stack (`inference/` — scripts + upstream patch)
 - [x] Tuned weights ([Hugging Face Hub](https://huggingface.co/mickyhimself/VideoCoCo))
-- [ ] Agent Skills (prompt → physical plan → Blender proxy → photoreal edit prompt)
 
 ## License
 
