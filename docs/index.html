@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7f6" />
+    <meta name="description" content="VideoCoCo: Code-as-CoT for physically-consistent video generation via an agentic dual-engine system." />
+    <title>VideoCoCo | Code-as-CoT for Video Generation</title>
+    <link rel="stylesheet" href="styles.css?v=28" />
+  </head>
+  <body>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid page-width">
+          <div class="hero-content">
+            <p class="eyebrow"><span class="eyebrow-dot"></span>Research project · June 2026</p>
+            <h1 id="hero-title"><span class="hero-name"><img class="hero-title-mark" src="assets/brand/videococo-bot.png" alt="" aria-hidden="true" /><span>VideoCoCo</span></span><span class="hero-tagline">Code-as-CoT for physically-consistent video generation via an agentic dual-engine system.</span></h1>
+            <p class="hero-lede"><strong>VideoCoCo is an agentic dual-engine framework in which executable Blender code serves as a process-level chain of thought.</strong> Given a text prompt, a coding agent synthesizes a Blender program, a simulation engine renders a deterministic spatiotemporal draft, and a generative video engine realizes it through draft-conditioned editing.</p>
+            <p class="hero-authors">Haodong Li*‡, Tianfei Ren*, Xiaoxiao Ma*, Chunmei Qing†, Zhen Fang‡, Sipeng He, Ziyu Guo, Haoyu Wu, Juanxi Tian, Yihang Zou, Ruichuan An, Dongzhi Jiang, Boxue Yang, Ji Xie, Xu Huang, Wenhao Yan, Jialv Zou, Zhengrong Yue, Yaxin Luo, Xiaotong Li, Yuzhu Wang, Junyan Ye, Jinjing Zhao, Zehui Chen, Lin Chen, Renye Yan, Feng Zhao†, Pheng-Ann Heng†</p>
+            <p class="hero-author-notes">* Equal contribution · † Corresponding authors · ‡ Project leaders</p>
+            <p class="hero-affiliations">CUHK · USTC · SCUT · HKU · NTU · PKU · SJTU · CMU · THU · HUST · MBZUAI</p>
+            <div class="hero-actions">
+              <a class="button button-bright" href="https://github.com/Frostlinx/VideoCoCo" target="_blank" rel="noopener"><i data-lucide="github" aria-hidden="true"></i><span>Code</span></a>
+              <a class="button button-ghost" href="#film"><i data-lucide="presentation" aria-hidden="true"></i><span>Presentation</span></a>
+              <a class="button button-ghost" href="#citation"><i data-lucide="quote" aria-hidden="true"></i><span>BibTeX</span></a>
+            </div>
+          </div>
+          <figure class="hero-media">
+            <figcaption><span>Featured result</span><strong>Hardness / VideoCoCo</strong></figcaption>
+            <video id="heroVideo" class="hero-video" autoplay muted loop playsinline poster="assets/figures/cot-paradigm.png">
+              <source src="assets/videos/videococo-hero.mp4" type="video/mp4" />
+            </video>
+          </figure>
+        </div>
+      </section>
+
+      <section class="intro section page-width" aria-labelledby="intro-title">
+        <div class="section-kicker">01 / The idea</div>
+        <div class="intro-grid">
+          <h2 id="intro-title">Externalize the process.<br /><span>Then realize the video.</span></h2>
+          <div class="intro-copy">
+            <p>A text prompt specifies an event at a highly compressed semantic level, leaving the physical principles governing its evolution largely unstated. Direct text-to-video models must therefore recover a complete spatiotemporal process while synthesizing visual appearance.</p>
+            <p>VideoCoCo externalizes that process before final video generation: a coding agent writes a Blender program, the simulation engine renders a deterministic spatiotemporal draft, and a generative video engine turns the draft into a photorealistic video through draft-conditioned editing.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="trailer section page-width" id="film" aria-labelledby="film-title">
+        <div class="section-kicker">02 / Project film</div>
+        <div class="trailer-heading">
+          <h2 id="film-title">A process-level chain<br /><span>of thought.</span></h2>
+          <p>Given a user prompt, VideoCoCo renders a deterministic spatiotemporal draft in a sandboxed Blender environment, then realizes it as a photorealistic video through draft-conditioned editing.</p>
+        </div>
+        <div class="trailer-frame">
+          <video class="trailer-video" controls playsinline preload="metadata">
+            <source src="assets/videos/videococo-main.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+
+      <section class="demo-section section" id="demo" aria-labelledby="demo-title">
+        <div class="page-width">
+          <div class="section-kicker">03 / Interactive demo lab</div>
+          <div class="section-heading-row">
+            <div>
+              <h2 id="demo-title">The intended process.<br /><span>Realized.</span></h2>
+              <p class="section-intro">Representative examples from Figure 3: VideoCoCo follows the executable spatiotemporal draft to preserve vacuum-induced collapse, buoyancy, impact shattering, and sublimation.</p>
+            </div>
+          </div>
+
+          <div class="case-tabs" role="tablist" aria-label="Physics cases">
+            <button class="case-tab is-active" type="button" role="tab" aria-selected="true" data-case="atmospheric_pressure"><span class="case-index">01</span><span>Atmospheric pressure</span></button>
+            <button class="case-tab" type="button" role="tab" aria-selected="false" data-case="buoyancy"><span class="case-index">02</span><span>Buoyancy</span></button>
+            <button class="case-tab" type="button" role="tab" aria-selected="false" data-case="hardness"><span class="case-index">03</span><span>Hardness</span></button>
+            <button class="case-tab" type="button" role="tab" aria-selected="false" data-case="sublimation"><span class="case-index">04</span><span>Sublimation</span></button>
+          </div>
+
+          <div class="demo-layout">
+            <aside class="prompt-panel">
+              <div class="prompt-label"><span class="live-dot"></span><span id="caseConcept">PHYSICAL PHENOMENON</span></div>
+              <h3 id="caseTitle">A sealed plastic bottle collapses.</h3>
+              <p id="casePrompt">A sealed plastic bottle collapsing as air is extracted.</p>
+              <div class="prompt-divider"></div>
+              <div class="prompt-foot"><span>Prompt</span><span id="caseNumber">01 / 04</span></div>
+            </aside>
+
+            <div class="viewer-panel">
+              <div class="viewer-topline">
+                <button id="playButton" class="icon-button" type="button" title="Play or pause videos" aria-label="Play or pause videos"><span aria-hidden="true">▶</span></button>
+              </div>
+              <div class="comparison-view">
+                <div class="video-card">
+                  <div class="video-label">Baseline</div>
+                  <div class="video-frame"><video id="baselineVideo" class="demo-video" muted loop playsinline preload="metadata"></video></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-label is-draft">Blender draft</div>
+                  <div class="video-frame"><video id="draftVideo" class="demo-video" muted loop playsinline preload="metadata"></video></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-label is-ours">VideoCoCo final</div>
+                  <div class="video-frame"><video id="oursVideo" class="demo-video" muted loop playsinline preload="metadata"></video></div>
+                </div>
+              </div>
+              <div class="timeline-row">
+                <span class="timecode" id="timeCurrent">00:00</span>
+                <span class="timecode" id="timeTotal">00:00</span>
+              </div>
+            </div>
+          </div>
+          <p class="demo-note">The white-clay draft is a deterministic, temporally dense structural scaffold: it fixes what happens and when; the editor supplies photorealistic appearance.</p>
+        </div>
+      </section>
+
+      <section class="method section page-width" id="method" aria-labelledby="method-title">
+        <div class="section-kicker">04 / Dual-engine system</div>
+        <div class="method-heading">
+          <h2 id="method-title">Separate the process<br /><span>from its appearance.</span></h2>
+          <p>The executable simulation engine commits the system to a concrete realization of target dynamics before pixels are synthesized. The generative video engine then uses the draft as a structural condition and focuses on photorealistic appearance.</p>
+        </div>
+        <div class="method-figure-wrap">
+          <img src="assets/figures/pipeline.png" alt="VideoCoCo pipeline showing an executable simulation engine feeding a generative video engine" class="method-figure" />
+        </div>
+        <div class="method-grid">
+          <article class="method-card"><span class="card-index">A</span><h3>Plan and write code</h3><p>Given a user prompt, a coding agent synthesizes a self-contained Blender Python program that specifies the scene, physical properties, and temporal evolution.</p></article>
+          <article class="method-card"><span class="card-index">B</span><h3>Render a sandbox draft</h3><p>The program runs in an isolated Blender environment, rendering a deterministic, low-fidelity draft whose frames instantiate the process from initial condition to outcome.</p></article>
+          <article class="method-card"><span class="card-index">C</span><h3>Draft-conditioned editing</h3><p>An instruction agent composes an appearance-focused instruction from the prompt and draft; the editor uses both to create a photorealistic video without redefining the simulated motion.</p></article>
+        </div>
+      </section>
+
+      <section class="paradigm section" aria-labelledby="paradigm-title">
+        <div class="page-width paradigm-inner">
+          <div class="section-kicker">05 / Why code-as-CoT</div>
+          <div class="paradigm-figure-wrap"><img src="assets/figures/cot-paradigm.png" alt="Comparison of planning, search, visual-state chain-of-thought and VideoCoCo" class="paradigm-figure" /></div>
+          <div class="paradigm-copy">
+            <h2 id="paradigm-title">A complete process.<br /><span>Not sparse states.</span></h2>
+            <p>Planning, test-time search, and visual-state CoT use textual, selective, or temporally sparse intermediates. VideoCoCo renders a complete deterministic draft video that provides dense spatiotemporal guidance.</p>
+            <div class="mini-points"><span>Explicit</span><span>Executable</span><span>Inspectable</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="results section page-width" id="results" aria-labelledby="results-title">
+        <div class="section-kicker">06 / Results</div>
+        <div class="results-heading">
+          <h2 id="results-title">Physical consistency,<br /><span>measured.</span></h2>
+          <div class="results-copy">
+            <p>On PhyGenBench and VBench-2.0, VideoCoCo achieves the best average score while Table 3 isolates the complementary contributions of executable drafting and video-editor adaptation.</p>
+            <ul class="results-takeaways">
+              <li>PhyGenBench: <strong class="key-number">0.475 to 0.558</strong> (<strong class="key-number">+0.083</strong>)</li>
+              <li>VBench-2.0: <strong class="key-number">52.18% to 77.88%</strong> (<strong class="key-number">+25.70</strong> points)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="results-tables">
+          <article class="benchmark-table benchmark-table-wide">
+            <div class="table-heading"><div><span class="table-index">Table 1</span><h3>Physical-consistency comparison on PhyGenBench</h3></div><p>Per-category consistency scores in [0, 1]; higher is better.</p></div>
+            <div class="table-scroll"><table class="results-table">
+              <thead><tr><th>Access</th><th>Method</th><th>Mechanics</th><th>Optics</th><th>Thermal</th><th>Material</th><th>Average</th></tr></thead>
+              <tbody>
+                <tr class="group-row"><td colspan="7">Closed-source generators</td></tr>
+                <tr><td>Closed</td><td>Pika</td><td>0.35</td><td>0.56</td><td>0.43</td><td>0.39</td><td>0.44</td></tr>
+                <tr><td>Closed</td><td>Gen-3</td><td>0.45</td><td>0.57</td><td>0.49</td><td>0.51</td><td>0.51</td></tr>
+                <tr><td>Closed</td><td>Kling</td><td>0.45</td><td>0.58</td><td>0.50</td><td>0.40</td><td>0.49</td></tr>
+                <tr class="group-row"><td colspan="7">Open-source generators</td></tr>
+                <tr><td>Open</td><td>CogVideoX</td><td>0.39</td><td>0.55</td><td>0.40</td><td>0.42</td><td>0.45</td></tr>
+                <tr><td>Open</td><td>Open-Sora V1.2</td><td>0.43</td><td>0.50</td><td>0.44</td><td>0.37</td><td>0.44</td></tr>
+                <tr><td>Open</td><td>LaVie</td><td>0.30</td><td>0.44</td><td>0.38</td><td>0.32</td><td>0.36</td></tr>
+                <tr><td>Open</td><td>Vchitect-2.0</td><td>0.41</td><td>0.56</td><td>0.44</td><td>0.37</td><td>0.45</td></tr>
+                <tr><td>Open</td><td>HunyuanVideo</td><td>0.33</td><td>0.39</td><td>0.26</td><td>0.30</td><td>0.33</td></tr>
+                <tr><td>Open</td><td>Wan2.2-TI2V-5B</td><td>0.55</td><td>0.58</td><td>0.53</td><td>0.50</td><td>0.54</td></tr>
+                <tr><td>Open</td><td>Cosmos-Predict2.5</td><td>0.30</td><td>0.33</td><td>0.41</td><td>0.39</td><td>0.35</td></tr>
+                <tr><td>Open</td><td>LTX-Video-2B</td><td>0.51</td><td>0.58</td><td>0.48</td><td>0.45</td><td>0.51</td></tr>
+                <tr class="group-row"><td colspan="7">VideoCoCo</td></tr>
+                <tr class="base-row"><td>Ours</td><td>OmniWeaving</td><td>0.48</td><td>0.56</td><td>0.43</td><td>0.39</td><td>0.48</td></tr>
+                <tr class="ours-row"><td>Ours</td><td>OmniWeaving + VideoCoCo</td><td><strong>0.56</strong></td><td><strong>0.61</strong></td><td>0.51</td><td><strong>0.53</strong></td><td><strong>0.56</strong></td></tr>
+              </tbody>
+            </table></div>
+          </article>
+          <article class="benchmark-table">
+            <div class="table-heading"><div><span class="table-index">Table 2</span><h3>Physical-plausibility comparison on VBench-2.0</h3></div><p>Per-dimension plausibility percentages; higher is better.</p></div>
+            <div class="table-scroll"><table class="results-table">
+              <thead><tr><th>Method</th><th>Mechanics</th><th>Thermotics</th><th>Material</th><th>Average</th></tr></thead>
+              <tbody>
+                <tr><td>Sora</td><td>62.22%</td><td>43.36%</td><td>64.94%</td><td>56.84%</td></tr>
+                <tr><td>Kling 1.6</td><td>65.55%</td><td>59.46%</td><td>68.00%</td><td>64.34%</td></tr>
+                <tr><td>HunyuanVideo</td><td>76.09%</td><td>56.52%</td><td>64.37%</td><td>65.66%</td></tr>
+                <tr><td>CogVideoX-1.5</td><td>80.80%</td><td>67.13%</td><td>83.19%</td><td>77.04%</td></tr>
+                <tr class="base-row"><td>OmniWeaving</td><td>62.79%</td><td>52.08%</td><td>41.67%</td><td>52.18%</td></tr>
+                <tr class="ours-row"><td>OmniWeaving + VideoCoCo</td><td><strong>92.31%</strong></td><td><strong>72.92%</strong></td><td>68.42%</td><td><strong>77.88%</strong></td></tr>
+              </tbody>
+            </table></div>
+          </article>
+          <article class="benchmark-table">
+            <div class="table-heading"><div><span class="table-index">Table 3</span><h3>Ablation of video-editor adaptation strategies</h3></div><p>All variants share the executable draft-generation pipeline.</p></div>
+            <div class="table-scroll"><table class="results-table">
+              <thead><tr><th>Editor adaptation</th><th>Mech.</th><th>Opt.</th><th>Therm.</th><th>Mat.</th><th>Avg.</th></tr></thead>
+              <tbody>
+                <tr class="base-row"><td>OmniWeaving</td><td>0.48</td><td>0.56</td><td>0.43</td><td>0.39</td><td>0.48</td></tr>
+                <tr><td>+ VideoCoCo (Tune-Free)</td><td>0.50</td><td>0.53</td><td>0.48</td><td>0.51</td><td>0.51</td></tr>
+                <tr><td>+ VideoCoCo (Full-Tune)</td><td>0.51</td><td>0.61</td><td>0.51</td><td>0.49</td><td>0.54</td></tr>
+                <tr class="ours-row"><td>+ VideoCoCo (LoRA-Tune)</td><td><strong>0.56</strong></td><td><strong>0.61</strong></td><td><strong>0.51</strong></td><td><strong>0.53</strong></td><td><strong>0.56</strong></td></tr>
+              </tbody>
+            </table></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="citation section" id="citation" aria-labelledby="citation-title">
+        <div class="page-width citation-inner">
+          <div><div class="section-kicker light">07 / Project notes</div><h2 id="citation-title">Code as a process-level CoT.</h2><p>VideoCoCo is fully automatic, inspectable, and reproducible: the program, the rendered draft, and the editing instruction are explicit intermediate artifacts.</p></div>
+          <div class="citation-box"><button id="copyCitation" class="copy-button" type="button"><i data-lucide="copy" aria-hidden="true"></i><span>Copy BibTeX</span></button><pre id="bibtex">@misc{videococo2026,
+  title={VideoCoCo: Code-as-CoT for Physically-Consistent Video Generation via an Agentic Dual-Engine System},
+  author={Li, Haodong and Ren, Tianfei and Ma, Xiaoxiao and Qing, Chunmei and Fang, Zhen and He, Sipeng and Guo, Ziyu and Wu, Haoyu and Tian, Juanxi and Zou, Yihang and An, Ruichuan and Jiang, Dongzhi and Yang, Boxue and Xie, Ji and Huang, Xu and Yan, Wenhao and Zou, Jialv and Yue, Zhengrong and Luo, Yaxin and Li, Xiaotong and Wang, Yuzhu and Ye, Junyan and Zhao, Jinjing and Chen, Zehui and Chen, Lin and Yan, Renye and Zhao, Feng and Heng, Pheng-Ann},
+  year={2026},
+  howpublished={Project page: https://github.com/Frostlinx/VideoCoCo}
+}</pre></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer page-width"><span>VideoCoCo · Project page</span><span>Research project, June 2026</span></footer>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js?v=5" defer></script>
+  </body>
+</html>
