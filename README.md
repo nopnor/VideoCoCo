@@ -1,28 +1,31 @@
-# 🎬 VideoCoCo: Composition as CoT for Physics-Faithful Video Generation
+# 🎬 VideoCoCo: Code as CoT for Physics-Faithful Video Generation
 
 Official repository for **VideoCoCo**, a physics-faithful video generation
-pipeline via **proxy-to-photoreal** composition.
+pipeline that uses **code as a chain-of-thought** to draft physics before
+committing to pixels.
 
 [[🤗 Weights](https://huggingface.co/mickyhimself/VideoCoCo)] [[💻 Code](https://github.com/micky-li-hd/VideoCoCo)]
 
-<!-- <p align="center"><img src="figs/pipeline.png" width="100%"></p> -->
+<p align="center"><img src="figs/cot-paradigm.png" width="90%"></p>
 
 ## 💥 News
 - **[2026.07.29]** We release the Agent Skills, a toy dataset, and the inference code. Tuned weights are uploading to the [🤗 Hub](https://huggingface.co/mickyhimself/VideoCoCo).
 
-## 🪄 Proxy Before Photoreal
+## 🪄 Draft Before Generation
 
 We propose **VideoCoCo**, an interleaved reasoning paradigm that carries a
 physical prior through an explicit visual draft before committing to pixels.
 
-Our method 🎨 **first plans a prompt into semantic keyframes and renders a
-neutral white/clay _proxy_ video** that carries the correct motion, causality,
-and physics — meaning is expressed by shape, transparency, deformation, and
-coverage, never by color.
+Our method 🎨 **first has a code agent write simulation code and render it in a
+sandbox as a neutral white/clay _proxy_ video** that carries the correct motion,
+causality, and physics — meaning is expressed by shape, transparency,
+deformation, and coverage, never by color.
 
 Then we 🔎 **verify the proxy against the physical plan** (a caused state must
 stay hidden until its causing transition), and 🖼️ **restyle the proxy into a
 photorealistic video** driven by a per-case edit instruction.
+
+<p align="center"><img src="figs/pipeline.png" width="100%"></p>
 
 ## 📦 What's in this repo
 
