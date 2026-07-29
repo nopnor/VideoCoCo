@@ -10,7 +10,7 @@ instruction.
 
 > **Status.** This repo ships the **Agent Skills** (`skill/`), a small **toy
 > dataset** (8 triplets), and the **inference** scripts. The tuned transformer is
-> on the Hugging Face Hub at
+> being uploaded to the Hugging Face Hub at
 > [`mickyhimself/VideoCoCo`](https://huggingface.co/mickyhimself/VideoCoCo).
 > See the roadmap below.
 
@@ -52,7 +52,15 @@ inspection, not a training-scale corpus.
 - [x] Agent Skills (`skill/` — prompt → physical plan → Blender proxy → photoreal edit prompt)
 - [x] Toy dataset (8 v2v triplets)
 - [x] Inference stack (`inference/` — scripts + upstream patch)
-- [x] Tuned weights ([Hugging Face Hub](https://huggingface.co/mickyhimself/VideoCoCo))
+- [ ] Tuned weights (uploading to [Hugging Face Hub](https://huggingface.co/mickyhimself/VideoCoCo))
+
+## 🧠 Our Related Work
+
+- **[DraCo]** [DraCo: Draft as CoT for Text-to-Image Preview and Rare Concept Generation](https://arxiv.org/abs/2512.05112) · [code](https://github.com/CaraJ7/DraCo)
+- **[T2I-R1]** [T2I-R1: Reinforcing Image Generation with Collaborative Semantic-level and Token-level CoT](https://arxiv.org/abs/2505.00703) · [code](https://github.com/CaraJ7/T2I-R1)
+- **[Image Generation CoT]** [Can We Generate Images with CoT? Let's Verify and Reinforce Image Generation Step by Step](https://arxiv.org/abs/2501.13926) · [code](https://github.com/ZiyuGuo99/Image-Generation-CoT)
+- **[NextStep-1]** [NextStep-1: Toward Autoregressive Image Generation with Continuous Tokens at Scale](https://arxiv.org/abs/2508.10711) · [code](https://github.com/stepfun-ai/NextStep-1)
+- **[LongCat-Next]** [LongCat-Next](https://github.com/meituan-longcat/LongCat-Next) · [model](https://huggingface.co/meituan-longcat/LongCat-Next)
 
 ## License
 
