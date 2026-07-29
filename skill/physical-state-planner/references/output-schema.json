@@ -1,0 +1,37 @@
+{
+  "physical_intent": "string",
+  "scene": {
+    "environment": "string",
+    "initial_objects": ["string"],
+    "process_objects": ["string"],
+    "final_objects_or_states": ["string"]
+  },
+  "semantic_keyframes": [
+    {
+      "id": "K0 | K1 | K2 | K3 | K4",
+      "time_hint": "rough percentage such as 0%, 20%, 50%, 75%, 100%",
+      "visible_state": "string",
+      "physical_state": "string",
+      "must_not_show": ["string"]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "keyframe id",
+      "to": "keyframe id",
+      "cause": "string",
+      "continuous_change": "string",
+      "should_not_jump": ["string"]
+    }
+  ],
+  "causal_constraints": [
+    {
+      "before": "string",
+      "after": "string",
+      "reason": "string"
+    }
+  ],
+  "must_show": ["string"],
+  "must_avoid": ["string"],
+  "uncertain_assumptions": ["string"]
+}

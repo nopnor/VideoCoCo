@@ -1,0 +1,4 @@
+interface:
+  display_name: "Physical State Planner"
+  short_description: "Plan physical video states from prompts"
+  default_prompt: "Turn this video prompt into a concise physical state plan with objects, semantic keyframes, transitions, causal constraints, must-show items, and must-avoid failures."

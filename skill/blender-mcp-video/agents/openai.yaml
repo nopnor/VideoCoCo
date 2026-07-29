@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender MCP Video"
+  short_description: "Run Blender MCP and direct video rendering reliably."
+  default_prompt: "Use $blender-mcp-video to render or debug a Blender video generation task."

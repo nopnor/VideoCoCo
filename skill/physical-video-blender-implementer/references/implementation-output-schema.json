@@ -1,0 +1,23 @@
+{
+  "case_id": "string",
+  "script_path": "string",
+  "preview_path": "string",
+  "preview_sheet_path": "string",
+  "blend_path": "string",
+  "keyframe_frame_map": {
+    "K0": 1,
+    "K1": 30,
+    "K2": 60,
+    "K3": 90,
+    "K4": 120
+  },
+  "implementation_notes": ["string"],
+  "known_limitations": ["string"],
+  "preview_checks": [
+    {
+      "check": "string",
+      "status": "pass | fail | uncertain",
+      "evidence": "string"
+    }
+  ]
+}

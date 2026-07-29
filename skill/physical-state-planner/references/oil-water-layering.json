@@ -1,0 +1,145 @@
+{
+  "physical_intent": "Show oil poured into water, remaining separate and settling as a layer above the water.",
+  "scene": {
+    "environment": "Transparent receiving glass on a table.",
+    "initial_objects": [
+      "receiving glass",
+      "water in receiving glass",
+      "source container with oil"
+    ],
+    "process_objects": [
+      "falling oil",
+      "separate oil droplets or patches at the water surface"
+    ],
+    "final_objects_or_states": [
+      "distinct oil layer above water",
+      "clear oil-water separation"
+    ]
+  },
+  "semantic_keyframes": [
+    {
+      "id": "K0",
+      "time_hint": "0%",
+      "visible_state": "Water is already in the receiving glass; oil remains in the source container.",
+      "physical_state": "The liquids are separate and have not contacted each other.",
+      "must_not_show": [
+        "oil already inside the receiving glass",
+        "surface oil layer"
+      ]
+    },
+    {
+      "id": "K1",
+      "time_hint": "20%",
+      "visible_state": "Oil leaves the source container and begins falling toward the water surface.",
+      "physical_state": "Gravity transfers oil from the source toward the receiving glass.",
+      "must_not_show": [
+        "full top oil layer",
+        "oil patches before contact"
+      ]
+    },
+    {
+      "id": "K2",
+      "time_hint": "50%",
+      "visible_state": "Oil has contacted the water and remains distinct as small droplets or patches near the surface.",
+      "physical_state": "Oil and water are immiscible; the oil separates instead of dissolving.",
+      "must_not_show": [
+        "uniform yellow water",
+        "deep sinking oil as the dominant behavior"
+      ]
+    },
+    {
+      "id": "K3",
+      "time_hint": "75%",
+      "visible_state": "Separate oil patches spread and coalesce across the water surface.",
+      "physical_state": "Accumulated oil spreads laterally near the surface and starts forming a continuous layer.",
+      "must_not_show": [
+        "sudden perfect circular film",
+        "oil patches disappearing before the layer grows"
+      ]
+    },
+    {
+      "id": "K4",
+      "time_hint": "100%",
+      "visible_state": "A stable oil layer sits above the water with a visible boundary.",
+      "physical_state": "The immiscible liquids settle into stratified layers.",
+      "must_not_show": [
+        "no visible separation",
+        "oil below water as the final arrangement"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "K0",
+      "to": "K1",
+      "cause": "The source container is tilted and gravity pulls oil out.",
+      "continuous_change": "The change originates at the source lip; oil moves downward along a visible transfer path toward the receiving glass, so material in the receiving glass is connected to oil leaving the source.",
+      "should_not_jump": [
+        "oil appears in the receiving glass without a transfer path",
+        "surface oil patches appear before falling oil reaches the water"
+      ]
+    },
+    {
+      "from": "K1",
+      "to": "K2",
+      "cause": "Falling oil contacts the water surface.",
+      "continuous_change": "The change originates at the water contact point; falling oil accumulates there as distinct droplets or small patches near the surface instead of appearing elsewhere.",
+      "should_not_jump": [
+        "oil dissolves uniformly",
+        "a full surface layer appears immediately at contact"
+      ]
+    },
+    {
+      "from": "K2",
+      "to": "K3",
+      "cause": "Immiscible oil accumulates at the surface and spreads laterally.",
+      "continuous_change": "Small droplets or patches spread outward from the contact region, widen laterally, and merge while visible oil coverage increases smoothly.",
+      "should_not_jump": [
+        "patches shrink away before a new layer appears",
+        "a sudden geometric disk replaces the patches"
+      ]
+    },
+    {
+      "from": "K3",
+      "to": "K4",
+      "cause": "Coalesced oil settles into a stable layer above the denser water.",
+      "continuous_change": "Patchy surface coverage becomes a smoother continuous top layer while preserving the same surface footprint and sharpening the oil-water boundary.",
+      "should_not_jump": [
+        "final layer appears as an unrelated new object",
+        "water and oil become homogeneous"
+      ]
+    }
+  ],
+  "causal_constraints": [
+    {
+      "before": "oil leaves the source container",
+      "after": "oil appears in the receiving glass",
+      "reason": "Transferred material must come from the source."
+    },
+    {
+      "before": "oil contacts the water surface",
+      "after": "oil patches spread across the surface",
+      "reason": "Surface spreading requires contact and accumulation."
+    },
+    {
+      "before": "oil patches spread and coalesce",
+      "after": "stable top oil layer appears",
+      "reason": "The final layer should be the result of accumulated oil, not an immediate geometric disk."
+    }
+  ],
+  "must_show": [
+    "oil visibly poured into water",
+    "oil and water remain visually distinct",
+    "oil patches spread before final layer",
+    "final oil layer above water"
+  ],
+  "must_avoid": [
+    "oil layer appears before pouring",
+    "oil dissolves uniformly into the water",
+    "oil sinks permanently to the bottom",
+    "sudden circular or geometric oil film appears without buildup"
+  ],
+  "uncertain_assumptions": [
+    "Assume the oil is less dense than water unless the input says otherwise."
+  ]
+}
